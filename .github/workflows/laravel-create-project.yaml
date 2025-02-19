@@ -8,10 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Change directory
-        run: |
-          mkdir check
-          cd check
       - name: Docker Version
         run: docker version
       - name: Docker Compose Settings
@@ -33,7 +29,7 @@ jobs:
       - name: Composer Version
         run: docker compose exec app composer --version
       - name: Create Laravel Project
-        run: docker compose exec app composer create-project --prefer-dist laravel/laravel check
+        run: docker compose exec app composer create-project --prefer-dist laravel/laravel .
       - name: Laravel Version
         run: docker compose exec app php artisan --version
       - name: Wait for the MySQL container to start
