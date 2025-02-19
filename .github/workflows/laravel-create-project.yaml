@@ -23,7 +23,6 @@ jobs:
         run: docker compose build
       - name: Create & Start Docker Containers
         run: |
-          mkdir check
           docker compose up -d
       - name: OS Version
         run: |
