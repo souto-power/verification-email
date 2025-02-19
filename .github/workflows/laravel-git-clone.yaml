@@ -13,7 +13,7 @@ jobs:
           mkdir check
           cd check
       - name: Git Clone Project
-        run: git clone https://github.com/laravel/laravel.git src
+        run: git clone https://github.com/laravel/laravel.git check
       - name: Docker Version
         run: docker version
       - name: Docker Compose Settings
