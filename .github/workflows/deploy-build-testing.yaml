@@ -8,8 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Change directory
+        run: |
+          mkdir check
+          cd check
       - name: Git Clone Project
-        run: git clone https://github.com/laravel/laravel.git src
+        run: git clone https://github.com/laravel/laravel.git check
       - name: Docker Version
         run: docker version
       - name: Docker Compose Settings
