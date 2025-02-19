@@ -33,7 +33,7 @@ jobs:
       - name: Composer Version
         run: docker compose exec app composer --version
       - name: Create Laravel Project
-        run: docker compose exec app composer create-project --prefer-dist laravel/laravel .
+        run: docker compose exec app composer create-project --prefer-dist laravel/laravel check
       - name: Laravel Version
         run: docker compose exec app php artisan --version
       - name: Wait for the MySQL container to start
