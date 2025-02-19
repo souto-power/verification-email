@@ -1,3 +1,5 @@
 .idea
 .vscode
 .env
+
+/.github/workflows/laravel-create-project.yaml
