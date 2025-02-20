@@ -89,3 +89,10 @@ pint:
 	docker compose exec app ./vendor/bin/pint --verbose
 pint-test:
 	docker compose exec app ./vendor/bin/pint --verbose --test
+
+model-all:
+	docker compose exec app php artisan make:model ${M} -mc --resource
+controller:
+	docker compose exec app php artisan make:controller ${C} --resource
+model:
+	docker compose exec app php artisan make:model ${M}

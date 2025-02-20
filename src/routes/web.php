@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PreSignupController;
+use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,6 +9,10 @@ Route::get('/', function () {
 });
 
 //Route::resource('/pre-signup', PreSignupController::class);
-Route::get('/pre-signup', [PreSignupController::class, 'index']);
-Route::post('/pre-signup', [PreSignupController::class, 'register']);
+Route::get('/pre-signup', [PreSignupController::class, 'create']);
+Route::post('/pre-signup', [PreSignupController::class, 'store']);
+
+Route::get('/signup', [SignupController::class, 'create']);
+Route::post('/signup', [SignupController::class, 'store']);
+
 
