@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pre_users', function (Blueprint $table) {
+        Schema::create('user_auth_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('token');
-            $table->string('email');
-            $table->dateTime('expired_at');
+            $table->bigInteger('user_id');
+            $table->string('code');
+            $table->boolean('auth_flag')->default(false);
+            $table->datetime('expired_at');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->softDeletes()->nullable();
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pre_users');
+        Schema::dropIfExists('user_auth_codes');
     }
 };

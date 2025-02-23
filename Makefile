@@ -96,3 +96,5 @@ controller:
 	docker compose exec app php artisan make:controller ${C} --resource
 model:
 	docker compose exec app php artisan make:model ${M}
+rollback:
+	docker compose exec app php artisan migrate:rollback

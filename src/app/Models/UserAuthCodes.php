@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PreUser extends Model
+class UserAuthCodes extends Model
 {
     protected $fillable = [
-        'token',
-        'email',
+        'user_id',
+        'code',
         'expired_at',
     ];
 }

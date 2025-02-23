@@ -20,6 +20,7 @@
     <div class="mainContent">
         <div class="bold">本登録が完了しました。</div>
     </div>
+    <div><a href="/signin">サインイン画面</a></div>
 @endif
 </body>
 

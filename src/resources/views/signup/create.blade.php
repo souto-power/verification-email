@@ -14,6 +14,7 @@
     <h1>本登録失敗</h1>
     <div class="mainContent">
         <div class="bold">本登録が失敗しました。</div>
+        <div class="bold">本登録をやり直してください。</div>
     </div>
 @else
     <h1>本登録</h1>

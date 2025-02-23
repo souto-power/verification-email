@@ -10,11 +10,13 @@ Route::get('/', function () {
 });
 
 //Route::resource('/pre-signup', PreSignupController::class);
-Route::get('/pre-signup', [PreSignupController::class, 'create']);
+Route::get('/pre-signup', [PreSignupController::class, 'input']);
 Route::post('/pre-signup', [PreSignupController::class, 'store']);
 
 Route::get('/signup', [SignupController::class, 'create']);
 Route::post('/signup', [SignupController::class, 'store']);
 
-Route::get('/signin', [SigninController::class, 'create']);
-Route::post('/signin', [SigninController::class, 'show']);
+Route::get('/signin', [SigninController::class, 'input']);
+Route::post('/signin', [SigninController::class, 'sendCode']);
+//Route::get('/signin/verify-email', [SigninController::class, 'confirm']);
+Route::post('/signin/verify-email', [SigninController::class, 'verify']);

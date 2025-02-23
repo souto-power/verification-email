@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PreUser;
+use App\Models\User;
 use App\Service\Mailer;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,6 +19,12 @@ class PreSignupController extends Controller
     {
         $email = $request->input('email');
 
+        $existsUser = User::query()->where('email', $email)->exists();
+        if ($existsUser) {
+            $errorMessage = "使用不可のメールアドレスです。";
+            return view('/pre-signup.store')->with(['isSuccess' => false, 'errorMessage' => $errorMessage]);
+        }
+
         $token = bin2hex(random_bytes(32));
         $url = "http://localhost:80/signup?urltoken=" . $token;
 
@@ -25,7 +32,7 @@ class PreSignupController extends Controller
             PreUser::create([
                 'token' => $token,
                 'email' => $email,
-                'requested_at' => now(),
+                'expired_at' => now()->addMinutes(5),
             ]);
         } catch (Exception $e) {
             $errorMessage = "仮登録に失敗しました。";

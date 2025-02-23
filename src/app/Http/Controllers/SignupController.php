@@ -23,7 +23,7 @@ class SignupController extends Controller
     {
         $urltoken = $request->input('urltoken');
 
-        $preUserData = PreUser::query()->where('token', $urltoken)->get()->first();
+        $preUserData = PreUser::query()->where('token', $urltoken)->where('expired_at', '>=', now())->get()->first();
 
         if (is_null($preUserData)) {
             return view('signup.create')->with(['isSuccess' => false]);
