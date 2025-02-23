@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PreUser;
+use App\Service\Mailer;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,20 @@ class PreSignupController extends Controller
                 'requested_at' => now(),
             ]);
         } catch (Exception $e) {
-            return view('/pre-signup.store')->with(['isSuccess' => false]);
+            $errorMessage = "仮登録に失敗しました。";
+            return view('/pre-signup.store')->with(['isSuccess' => false, 'errorMessage' => $errorMessage]);
+        }
+
+        $mailer = new Mailer();
+        $mailer->setSubject('本登録のお知らせ');
+        $mailer->setAddress($email);
+        $mailer->setBody($url);
+
+        try {
+            $mailer->send();
+        } catch (Exception $e) {
+            $errorMessage = "メール送信に失敗しました。";
+            return view('/pre-signup.store')->with(['isSuccess' => false, 'errorMessage' => $errorMessage]);
         }
 
         return view('/pre-signup.store')->with(['isSuccess' => true, 'url' => $url]);

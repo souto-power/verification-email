@@ -58,9 +58,12 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
 
-  mailpit:
+  mail:
     image: axllent/mailpit
+    container_name: mailpit
     ports:
+      - 8025:8025
+      - 1025:1025
       - target: 8025
         published: ${MAILPIT_PUBLISHED_PORT:-8025}
         protocol: tcp

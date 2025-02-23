@@ -13,6 +13,7 @@
 @if (!$isSuccess)
     <h1>仮登録失敗</h1>
     <div class="mainContent">
+        <div class="bold">{{ $errorMessage }}</div>
         <div class="bold">仮登録をやり直してください。</div>
     </div>
 @else
