@@ -18,5 +18,4 @@ Route::post('/signup', [SignupController::class, 'store']);
 
 Route::get('/signin', [SigninController::class, 'input']);
 Route::post('/signin', [SigninController::class, 'sendCode']);
-//Route::get('/signin/verify-email', [SigninController::class, 'confirm']);
 Route::post('/signin/verify-email', [SigninController::class, 'verify']);
