@@ -10,17 +10,11 @@ use Illuminate\Http\Request;
 
 class SigninController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function input()
     {
         return view('signin.input');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function sendCode(Request $request)
     {
         $email = $request->input('email');
@@ -54,9 +48,6 @@ class SigninController extends Controller
         return view('/signin.confirm')->with(['isSuccess' => true, 'email' => $email]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function verify(Request $request)
     {
         $email = $request->input('email');
@@ -81,37 +72,5 @@ class SigninController extends Controller
             ->update(['auth_flag' => 1]);
 
         return view('/signin.auth')->with(['isSuccess' => true]);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

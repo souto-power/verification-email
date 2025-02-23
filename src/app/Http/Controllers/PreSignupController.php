@@ -12,7 +12,7 @@ class PreSignupController extends Controller
 {
     public function input()
     {
-        return view('pre-signup.create');
+        return view('pre-signup.input');
     }
 
     public function store(Request $request)

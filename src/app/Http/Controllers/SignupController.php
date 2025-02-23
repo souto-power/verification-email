@@ -9,14 +9,6 @@ use Illuminate\Http\Request;
 class SignupController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create(Request $request)
@@ -31,7 +23,7 @@ class SignupController extends Controller
 
         PreUser::query()->where('token', $urltoken)->delete();
 
-        return view('signup.create')->with(['isSuccess' => true, 'email' => $preUserData->email]);
+        return view('signup.input')->with(['isSuccess' => true, 'email' => $preUserData->email]);
     }
 
     /**
@@ -48,37 +40,5 @@ class SignupController extends Controller
         ]);
 
         return view('signup.store')->with(['isSuccess' => true]);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
