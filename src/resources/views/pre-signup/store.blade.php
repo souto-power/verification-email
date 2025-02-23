@@ -23,9 +23,6 @@
         <div class="bold">ご登録いただいたメールアドレス宛に、登録用のURLを記載したメールを送信しました。</div>
         <div class="bold">メールに記載されたURLをクリックして、本登録を完了してください。</div>
     </div>
-
-    <div>mailerの実装は趣旨ではないので、メールの内容が以下という体</div>
-    <a href={{ $url }}>{{ $url }}</a>
 @endif
 </body>
 

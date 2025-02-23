@@ -44,6 +44,6 @@ class PreSignupController extends Controller
             return view('/pre-signup.store')->with(['isSuccess' => false, 'errorMessage' => $errorMessage]);
         }
 
-        return view('/pre-signup.store')->with(['isSuccess' => true, 'url' => $url]);
+        return view('/pre-signup.store')->with(['isSuccess' => true]);
     }
 }
