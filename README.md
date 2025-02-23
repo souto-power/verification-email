@@ -11,6 +11,9 @@
 - MySQL
 - Nginx
 - Mailpit
+<br><br>
+環境はこちらのテンプレートを使用<br>
+- https://github.com/ucan-lab/docker-laravel
 
 ### 使い方
 ```
