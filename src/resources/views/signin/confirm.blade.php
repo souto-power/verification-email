@@ -31,6 +31,7 @@
             <input type="text" name="code" id="code" required>
             <button type="submit">送信</button>
         </form>
+        <div><a href="http://localhost:8025/" target="_blank">Mailer</a></div>
 @endif
 </body>
 
