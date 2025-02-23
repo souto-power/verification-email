@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class PreSignupController extends Controller
 {
-    public function create()
+    public function input()
     {
         return view('pre-signup.create');
     }
